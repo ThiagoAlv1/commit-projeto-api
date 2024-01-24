@@ -1,4 +1,4 @@
-package technology.commit.security;
+package technology.commit.infra.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -23,10 +23,9 @@ public class TokenService {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
-                    .withIssuer("API Voll.med")
-                    .withSubject(usuario.getUsuario())
+                    .withIssuer("API commit-technology")
+                    .withSubject(usuario.getLogin())
                     .withClaim("id", usuario.getId())
-                    .withClaim("senha", usuario.getSenha())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception) {
@@ -39,7 +38,7 @@ public class TokenService {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.require(algoritmo)
-                    .withIssuer("API Voll.med")
+                    .withIssuer("API commit-technology")
                     .build()
                     .verify(tokenJWT)
                     .getSubject();

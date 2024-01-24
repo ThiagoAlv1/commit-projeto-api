@@ -1,4 +1,4 @@
-package technology.commit.security;
+package technology.commit.infra.security;
 
 public record DadosTokenJWT(String token) {
 }

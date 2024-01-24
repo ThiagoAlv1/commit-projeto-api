@@ -1,4 +1,4 @@
-package technology.commit.models.posts;
+package technology.commit.models.posts.DTOs;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +13,6 @@ public record DadosPost(
         String titulo,
         @NotBlank
         String conteudo
-
 ) {
+
 }
