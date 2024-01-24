@@ -3,9 +3,8 @@ package technology.commit.models.posts.DTOs;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import technology.commit.models.usuario.Usuario;
 
-public record DadosPost(
+public record DadosPostDTO(
         @Valid
         @NotNull
         Long criadorPostId,

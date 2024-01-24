@@ -19,7 +19,7 @@ public class TratadorDeErros {
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity tratarErro404() {
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entidade não encontrada no banco de dados");
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -32,6 +32,7 @@ public class TratadorDeErros {
     public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
+
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity tratarErro400(HttpMessageNotReadableException ex) {

@@ -2,7 +2,7 @@ package technology.commit.models.posts;
 
 import jakarta.persistence.*;
 import lombok.*;
-import technology.commit.models.posts.DTOs.DadosPost;
+import technology.commit.models.posts.DTOs.DadosPostDTO;
 import technology.commit.models.usuario.Usuario;
 import java.time.LocalDateTime;
 
@@ -32,7 +32,7 @@ public class Posts {
     @Column(name = "criado_em")
     private LocalDateTime criadoEm;
 
-    public Posts(Usuario criadorPost, DadosPost dados) {
+    public Posts(Usuario criadorPost, DadosPostDTO dados) {
         this.criadorPostId = criadorPost;
         this.titulo = dados.titulo();
         this.conteudo = dados.conteudo();

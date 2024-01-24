@@ -4,7 +4,7 @@ import technology.commit.models.posts.Posts;
 
 import java.time.LocalDateTime;
 
-public record DadosRetornoPaginacao(
+public record DadosRetornoPaginacaoPostDTO(
         Long idPost,
         Long criadorPostId,
         String criadorPostLogin,
@@ -12,7 +12,7 @@ public record DadosRetornoPaginacao(
         String conteudo,
         LocalDateTime criadoEm
 ) {
-    public DadosRetornoPaginacao(Posts posts) {
+    public DadosRetornoPaginacaoPostDTO(Posts posts) {
         this(posts.getIdPost(),
                 posts.getCriadorPostId().getId(),
                 posts.getCriadorPostId().getLogin(),
